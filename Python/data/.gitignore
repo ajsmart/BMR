@@ -1,0 +1,11 @@
+
+/misc/*.*
+/Laser/*.csv
+/Scale/*.csv
+/image/*.*
+/image2/*.*
+/photo/*.*
+/Laser_ignore
+*.jpg
+*.png
+*.avi
