@@ -47,7 +47,7 @@ if __name__ == '__main__':
         nDat.append(a)
     
     #average data -- not sure how to handle this one...
-    
+
     #plot raw laser data
     p.figure(1)
     for r in rDat:
@@ -55,6 +55,7 @@ if __name__ == '__main__':
     p.title('Raw laser Data')
     p.ylabel('Distance from laser (mm)')
     p.xlabel('Number of samples')
+    p.legend(files)
 
     #plot normalized laser data
     p.figure(2)
@@ -63,5 +64,9 @@ if __name__ == '__main__':
     p.title('Normalized laser Data')
     p.ylabel('Normalized Distance from laser (mm)')
     p.xlabel('Number of samples')
+    p.legend(files)
+
+    α = 1
+    print(α)
 
     p.show()

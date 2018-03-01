@@ -1,19 +1,21 @@
 %% open data file to be filtered
-    M = csvread('C:\Users\alex\Documents\MeasurementGit\BMRdrying\Python\data\Laser\01.09.17_025_Laser_open.csv',1,2);
+x = csvread('C:\Users\alex\Documents\MeasurementGit\BMR\Python\data\Laser\01.16.18_031_laser_open.csv',1,2);
+M = x(:,1);
 %% Design filter parameters
-cf = 1*10^-10;  %Normalized corner frequency (0-pi)
-b = cf*sinc(cf*(-15:35));
-b = b.*chebwin(51)';  %hamming windown looked like a good option.
-% fvtool(b,1)
+cf = .05;  %Normalized corner frequency (0-pi)
+b = cf*sinc(cf*(-75:75));
+b = b.*hamming(151)';  %hamming window looked like a good option.
+%fvtool(b,1)
 
 %% filter
 r = conv(b,M);
-tmp = r*max(M)/max(r);
-figure(1)
-plot(tmp(50:end-50))
-title('Filtered')
-figure(2)
+%tmp = r*max(M)/max(r);
+figure()
+plot(r(150:end-150))
+hold on
 plot(M)
-title('Original')
-%axis([0 600000 -.006 .002])
-drawnow
+hold off
+title('Filtered vs Original')
+legend('Filtered','Original')
+xlabel('Samples')
+ylabel('Laser (mm)')

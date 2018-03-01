@@ -34,7 +34,7 @@ if __name__ == '__main__':
     maxvals = []
     for f in fDat:
         max = 0
-        for x in range(0,10000):
+        for x in range(0,min([10000,len(fDat)])):
             if f[x] > max and f[x] < 1:
                 max = f[x]
         maxvals.append(max)
