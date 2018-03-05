@@ -66,7 +66,4 @@ if __name__ == '__main__':
     p.xlabel('Number of samples')
     p.legend(files)
 
-    α = 1
-    print(α)
-
     p.show()
